@@ -11,7 +11,7 @@ export const useTodoStore = create<ITodosState>((set) => ({
 
   addTodo: (text) => {
     const newTodo: ITodo = {
-      id: Date.now(),
+      id: `#Task Id: ${Date.now()}`,
       text,
       completed: false,
     };
