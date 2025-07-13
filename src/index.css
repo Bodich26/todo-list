@@ -19,6 +19,10 @@
   box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0.1),
     inset 0px 0px 55px 0px rgba(216, 216, 216, 0.1);
 }
+.inner-shadow-block-completed {
+  box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0.12),
+    inset 0px 0px 55px 0px rgba(216, 216, 216, 0.12);
+}
 
 .bg-section {
   background-image: url("/background.jpg");
