@@ -19,9 +19,9 @@ export const TodoItem = ({
   return (
     <div
       className={cn(
-        "group relative p-3 rounded-md bg-[#E4E4E7]/10 w-full min-h-[80px] border backdrop-blur-[0px]",
+        "group relative p-3 rounded-md bg-[#E4E4E7]/10 w-full min-h-[80px] border backdrop-blur-[0px] ",
         completed
-          ? "border-[#E4E4E7]/10 bg-[#E4E4E7]/0 inner-shadow-block-completed"
+          ? "border-[#E4E4E7]/20 bg-[#E4E4E7]/0 inner-shadow-block-completed"
           : "border-[#E4E4E7]/40 bg-[#E4E4E7]/10 inner-shadow-block"
       )}
     >
@@ -42,7 +42,7 @@ export const TodoItem = ({
         {text}
       </p>
 
-      <div className=" bg-[#313131] left-0 ring-0 top-0 bottom-0 w-full rounded-md border border-[#E4E4E7]/40 absolute flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className=" bg-[#313131] left-0 ring-0 top-0 bottom-0 w-full rounded-md border border-[#E4E4E7]/40 absolute flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
         <div className="flex justify-center items-center gap-8">
           <Button
             type="submit"

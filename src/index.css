@@ -16,12 +16,29 @@
 }
 
 .inner-shadow-block {
-  box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0.1),
-    inset 0px 0px 55px 0px rgba(216, 216, 216, 0.1);
+  box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0),
+    inset 0px 0px 55px 0px rgba(216, 216, 216, 0);
+  animation: fade-shadow-normal 0.4s ease-in-out 0.3s forwards;
 }
+
 .inner-shadow-block-completed {
-  box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0.12),
-    inset 0px 0px 55px 0px rgba(216, 216, 216, 0.12);
+  box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0),
+    inset 0px 0px 55px 0px rgba(216, 216, 216, 0);
+  animation: fade-shadow-completed 0.4s ease-in-out 0.3s forwards;
+}
+
+@keyframes fade-shadow-normal {
+  to {
+    box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0.1),
+      inset 0px 0px 55px 0px rgba(216, 216, 216, 0.1);
+  }
+}
+
+@keyframes fade-shadow-completed {
+  to {
+    box-shadow: inset 0px 4px 4px 0px rgba(216, 216, 216, 0.12),
+      inset 0px 0px 55px 0px rgba(216, 216, 216, 0.12);
+  }
 }
 
 .bg-section {
