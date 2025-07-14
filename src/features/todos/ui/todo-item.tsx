@@ -1,5 +1,6 @@
 import { CircleCheck, Trash } from "lucide-react";
 import { Button, cn } from "../../../shared";
+import confetti from "canvas-confetti";
 
 type Props = {
   text: string;
@@ -16,6 +17,18 @@ export const TodoItem = ({
   onCompleted,
   completed,
 }: Props) => {
+  const handleCompleted = () => {
+    onCompleted(id);
+
+    if (!completed) {
+      confetti({
+        particleCount: 70,
+        spread: 120,
+        origin: { y: 0.6 },
+      });
+    }
+  };
+
   return (
     <div
       className={cn(
@@ -58,7 +71,7 @@ export const TodoItem = ({
             type="submit"
             variant="default"
             size={"lg"}
-            onClick={() => onCompleted(id)}
+            onClick={handleCompleted}
             className="bg-transparent border cursor-pointer w-32"
           >
             <CircleCheck width={24} />

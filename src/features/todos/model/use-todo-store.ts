@@ -23,7 +23,7 @@ export const useTodoStore = create<ITodosState>((set, get) => {
 
     addTodo: (text) => {
       const newTodo: ITodo = {
-        id: `#Task Id: ${Date.now()}`,
+        id: `Id: ${Date.now()}`,
         text,
         completed: false,
       };
