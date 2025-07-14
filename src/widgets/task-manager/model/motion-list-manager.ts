@@ -14,4 +14,18 @@ const animManagerBlock = {
   transition: { duration: 1, ease: easeInOut },
 };
 
-export { animManagerBlock };
+const animManagerTitle = {
+  initial: {
+    scale: 0.9,
+    opacity: 0,
+    y: -10,
+  },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    y: 0,
+  },
+  transition: { duration: 2, ease: easeInOut },
+};
+
+export { animManagerBlock, animManagerTitle };

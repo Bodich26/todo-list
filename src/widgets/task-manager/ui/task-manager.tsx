@@ -1,13 +1,18 @@
 import { motion } from "motion/react";
 import { TodoForm, TodoList } from "../../../features/todos";
-import { animManagerBlock } from "../model/motion-list-manager";
+import {
+  animManagerBlock,
+  animManagerTitle,
+} from "../model/motion-list-manager";
 
 export const TaskManager = () => {
   return (
     <>
-      <h1 className="uppercase font-bold text-[198px] text-center title-gradient max-md:text-[130px] max-sm:text-[90px] tracking-[0.15em] leading-[1.1]">
-        TODO LIST
-      </h1>
+      <motion.div {...animManagerTitle}>
+        <h1 className="uppercase font-bold text-[198px] text-center title-gradient max-md:text-[130px] max-sm:text-[90px] tracking-[0.15em] leading-[1.1]">
+          TODO LIST
+        </h1>
+      </motion.div>
 
       <motion.div
         {...animManagerBlock}
