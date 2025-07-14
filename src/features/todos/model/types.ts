@@ -6,10 +6,10 @@ export interface ITodo {
 
 export interface IInitialState {
   todos: ITodo[];
-  isLoading: boolean;
 }
 
 export interface IActions {
+  setTodos: (todos: ITodo[]) => void;
   addTodo: (text: string) => void;
   deleteTodo: (id: string) => void;
   completeTodo: (id: string) => void;

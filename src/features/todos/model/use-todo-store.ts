@@ -3,35 +3,48 @@ import type { IInitialState, ITodo, ITodosState } from "./types";
 
 const initialState: IInitialState = {
   todos: [],
-  isLoading: false,
 };
 
-export const useTodoStore = create<ITodosState>((set) => ({
-  ...initialState,
+const saveToStorage = (todos: ITodo[]) => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
 
-  addTodo: (text) => {
-    const newTodo: ITodo = {
-      id: `#Task Id: ${Date.now()}`,
-      text,
-      completed: false,
-    };
+export const useTodoStore = create<ITodosState>((set, get) => {
+  const stored = localStorage.getItem("todos");
+  const initial = stored ? JSON.parse(stored) : initialState.todos;
 
-    set((state) => ({
-      todos: [...state.todos, newTodo],
-    }));
-  },
+  return {
+    todos: initial,
 
-  deleteTodo: (id) => {
-    set((state) => ({
-      todos: state.todos.filter((todo) => todo.id !== id),
-    }));
-  },
+    setTodos: (todos) => {
+      saveToStorage(todos);
+      set({ todos });
+    },
 
-  completeTodo: (id) => {
-    set((state) => ({
-      todos: state.todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      ),
-    }));
-  },
-}));
+    addTodo: (text) => {
+      const newTodo: ITodo = {
+        id: `#Task Id: ${Date.now()}`,
+        text,
+        completed: false,
+      };
+
+      const updated = [...get().todos, newTodo];
+      saveToStorage(updated);
+      set({ todos: updated });
+    },
+
+    deleteTodo: (id) => {
+      const updated = get().todos.filter((item) => item.id !== id);
+      saveToStorage(updated);
+      set({ todos: updated });
+    },
+
+    completeTodo: (id) => {
+      const updated = get().todos.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      );
+      saveToStorage(updated);
+      set({ todos: updated });
+    },
+  };
+});
